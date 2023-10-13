@@ -1,0 +1,53 @@
+﻿<Window x:Class="RaceClient.Pages.SettingsWindow2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RaceClient.Pages"
+        mc:Ignorable="d"
+        Title="SettingsWindow2" Height="450" Width="800" WindowState="Maximized">
+  <Window.Resources>
+    <ImageSource x:Key="imgSource">/Assets/Background.png</ImageSource>
+    <ImageBrush x:Key="backgroundImage" ImageSource="{DynamicResource imgSource}" Opacity="0.0"></ImageBrush>
+  </Window.Resources>
+  <Window.Background>
+    <ImageBrush Opacity="0.3" ImageSource="..\Assets\1.jpg"/>
+  </Window.Background>
+  <Grid>
+
+    <Grid.RowDefinitions>
+      <RowDefinition/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <StackPanel Grid.Row="0"  Margin="50" Background="FloralWhite">
+      <Label>Press Previous button when done</Label>
+
+      <Label>Server Name:</Label>
+      <TextBox Text="{Binding AppSettings.ServerName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+      <Label>Server IP:</Label>
+      <TextBox Text="{Binding AppSettings.ServerIP,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+      <Label>ServerPort:</Label>
+      <TextBox Text="{Binding AppSettings.ServerPort,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+      <Label>ServerHTTPPort:</Label>
+      <TextBox Text="{Binding AppSettings.ServerHTTPPort,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+      <Label>Pod IP:</Label>
+      <TextBox Text="{Binding AppSettings.PodIP,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+
+      <Label>Cars Location:</Label>
+      <TextBox Text="{Binding AppSettings.CarsLocation,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+
+      <Label>Tracks Location:</Label>
+      <TextBox Text="{Binding AppSettings.TracksLocation,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+      
+      <Label>Assist Location:</Label>
+      <TextBox Text="{Binding AppSettings.AssistLocation,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+      
+      <Label>Acs Location:</Label>
+      <TextBox Text="{Binding AppSettings.ExeLocation,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+    </StackPanel>
+
+    <StatusBar Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+      <Button Click="Previous_Click">Previous page</Button>
+    </StatusBar>
+  </Grid>
+</Window>

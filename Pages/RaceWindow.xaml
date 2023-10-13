@@ -1,0 +1,217 @@
+﻿<Window
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RaceClient.Pages"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:views="clr-namespace:RaceClient.Views" x:Class="RaceClient.Pages.RaceWindow"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920"
+        Background="{DynamicResource backgroundImage}" WindowState="Maximized">
+  <Window.Resources>
+
+    <Style x:Key="NormalStyle" TargetType="{x:Type Button}">
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="{x:Type Button}">
+            <Grid>
+              <Border x:Name="ButtonBorder" BorderBrush="Black" BorderThickness="0" CornerRadius="15,15,15,15" Background="#FF2B2B2B">
+                <Border.Effect>
+                  <DropShadowEffect ShadowDepth="0" Color="#FFA525BB" Opacity="100" BlurRadius="25" Direction="0" />
+                </Border.Effect>
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+              </Border>
+            </Grid>           
+            <ControlTemplate.Triggers>
+              <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="ButtonBorder" Property="Background" Value="#FF722377"/>
+              </Trigger>
+            </ControlTemplate.Triggers>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+    
+    
+    <Style x:Key="SelectedStyle" TargetType="{x:Type Button}">
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="{x:Type Button}">
+            <Grid>
+              <Border x:Name="ButtonBorder" BorderBrush="Black" BorderThickness="0" CornerRadius="15,15,15,15" Background="#78281F">
+                <Border.Effect>
+                  <DropShadowEffect ShadowDepth="0" Color="#FFA525BB" Opacity="100" BlurRadius="25" Direction="0" />
+                </Border.Effect>
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+              </Border>
+            </Grid>
+            <ControlTemplate.Triggers>
+              <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="ButtonBorder" Property="Background" Value="#FF722377"/>
+              </Trigger>
+            </ControlTemplate.Triggers>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+
+
+    <Style x:Key="TransparentStyle" TargetType="{x:Type Button}">
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="Button">
+            <Border Background="Transparent">
+              <ContentPresenter/>
+            </Border>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+  
+
+    <ImageSource x:Key="imgSource">/Assets/Background.png</ImageSource>
+    <ImageBrush x:Key="backgroundImage" ImageSource="{DynamicResource imgSource}" Opacity="0.3"/>
+
+    <DataTemplate x:Key="AssistSpecs">
+      <Border Name="border"  BorderThickness="1" Padding="5" Margin="5">
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+          </Grid.ColumnDefinitions>
+
+          <TextBlock Grid.Row="0" Grid.Column="0" Text="Ideal Line:"/>
+          <Button Grid.Row="0" Grid.Column="1"  Width="15" Height="15" Style="{StaticResource TransparentStyle}">
+            <Image Source="{Binding Path=Ideal}" Width="16" Height="16"  Stretch="UniformToFill"/>
+          </Button>
+          <TextBlock Grid.Row="1" Grid.Column="0" Text="Auto Blip:"/>
+          <!--<TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=AUTO_BLIP}"/>-->
+          <Button Grid.Row="1" Grid.Column="1"  Width="15" Height="15" Style="{StaticResource TransparentStyle}">
+            <Image Source="{Binding Path=Blip}" Width="16" Height="16"  Stretch="UniformToFill"/>
+          </Button>
+          <TextBlock Grid.Row="2" Grid.Column="0" Text="Stability Control:"/>
+          <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Path=Stability}"/>
+          <TextBlock Grid.Row="3" Grid.Column="0" Text="Auto Brake:"/>
+          <!--<TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Path=AUTO_BRAKE}"/>-->
+          <Button Grid.Row="3" Grid.Column="1"  Width="15" Height="15" Style="{StaticResource TransparentStyle}">
+            <Image Source="{Binding Path=Brake}" Width="16" Height="16"  Stretch="UniformToFill"/>
+          </Button>
+          <TextBlock Grid.Row="4" Grid.Column="0" Text="Auto Shifter:"/>
+          <!--<TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Path=AUTO_SHIFTER}"/>-->
+          <Button Grid.Row="4" Grid.Column="1"  Width="15" Height="15" Style="{StaticResource TransparentStyle}">
+            <Image Source="{Binding Path=Shifter}" Width="16" Height="16"  Stretch="UniformToFill"/>
+          </Button>
+          <TextBlock Grid.Row="5" Grid.Column="0" Text="Abs:"/>
+          <!--<TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding Path=ABS}"/>-->
+          <Button Grid.Row="5" Grid.Column="1"  Width="15" Height="15" Style="{StaticResource TransparentStyle}">
+            <Image Source="{Binding Path=Abs}" Width="16" Height="16"  Stretch="UniformToFill"/>
+          </Button>
+          <TextBlock Grid.Row="6" Grid.Column="0" Text="Traction Control:"/>
+          <!--<TextBlock Grid.Row="6" Grid.Column="1" Text="{Binding Path=TRACTION_CONTROL}"/>-->
+          <Button Grid.Row="6" Grid.Column="1"  Width="15" Height="15" Style="{StaticResource TransparentStyle}">
+            <Image Source="{Binding Path=Traction}" Width="16" Height="16"  Stretch="UniformToFill"/>
+          </Button>
+          <TextBlock Grid.Row="7" Grid.Column="0" Text="Auto Clutch:"/>
+          <!--<TextBlock Grid.Row="7" Grid.Column="1" Text="{Binding Path=AUTO_CLUTCH}"/>-->
+          <Button Grid.Row="7" Grid.Column="1"  Width="15" Height="15" Style="{StaticResource TransparentStyle}">
+            <Image Source="{Binding Path=Cluth}" Width="16" Height="16"  Stretch="UniformToFill"/>
+          </Button>
+          <TextBlock Grid.Row="8" Grid.Column="0" Text="Visual Damage:"/>
+          <!--<TextBlock Grid.Row="8" Grid.Column="1" Text="{Binding Path=VISUALDAMAGE}"/>-->
+          <Button Grid.Row="8" Grid.Column="1"  Width="15" Height="15" Style="{StaticResource TransparentStyle}">
+            <Image Source="{Binding Path=Visual}" Width="16" Height="16"  Stretch="UniformToFill"/>
+          </Button>
+          <TextBlock Grid.Row="9" Grid.Column="0" Text="Damage:"/>
+          <TextBlock Grid.Row="9" Grid.Column="1" Text="{Binding Path=DAMAGE}"/>
+          <TextBlock Grid.Row="10" Grid.Column="0" Text="Fuel Rate:"/>
+          <TextBlock Grid.Row="10" Grid.Column="1" Text="{Binding Path=FUEL_RATE}"/>
+          <TextBlock Grid.Row="11" Grid.Column="0" Text="Tyre Wear:"/>
+          <TextBlock Grid.Row="11" Grid.Column="1" Text="{Binding Path=TYRE_WEAR}"/>
+          
+          <TextBlock Grid.Row="12" Grid.Column="0" Text="Tyre Blankets:"/>
+          <!--<TextBlock Grid.Row="12" Grid.Column="1" Text="{Binding Path=TYRE_BLANKETS}"/>-->
+          <Button Grid.Row="12" Grid.Column="1"  Width="15" Height="15" Style="{StaticResource TransparentStyle}">
+            <Image Source="{Binding Path=Tyre}" Width="16" Height="16"  Stretch="UniformToFill"/>
+          </Button>
+          <TextBlock Grid.Row="13" Grid.Column="0" Text="Slip Stream:"/>
+          <TextBlock Grid.Row="13" Grid.Column="1" Text="{Binding Path=SLIPSTREAM}"/>
+        </Grid>
+      </Border>
+
+    </DataTemplate>
+  </Window.Resources>
+
+
+
+  <Grid>
+    <Grid.Background>
+      <ImageBrush ImageSource="../Assets/ACC_1.jpg"/>
+    </Grid.Background>
+    <Grid.RowDefinitions>
+      <RowDefinition/>
+      <RowDefinition/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+    <Button Grid.Column="0" Height="293" Width="180" x:Name="GamerButton" Click="Gamer_Click"
+            Background="#FF2B2B2B" Foreground="White" FontSize="30"  Content="Gamer" Style="{StaticResource NormalStyle}">
+    </Button>
+    <Button Grid.Column="1" HorizontalAlignment="Center" Height="293" Width="180" x:Name="SemiProButton" Click="SemiPro_Click"
+            Background="#FF2B2B2B" Foreground="White" FontSize="30"  Content="SemiPro" Style="{StaticResource NormalStyle}">
+    </Button>
+    <Button Grid.Column="2" x:Name="ProButton" Height="293" Width="180" Click="Pro_Click"
+            Background="#FF2B2B2B" Foreground="White" FontSize="30"  Content="Pro" Style="{StaticResource NormalStyle}">
+    </Button>
+    <Button Grid.Column="3" x:Name="RacerButton" Height="293" Width="180" Click="Racer_Click"
+            Background="#FF2B2B2B" Foreground="White" FontSize="30"  Content="Racer" Style="{StaticResource NormalStyle}">
+    </Button>
+    
+
+    <Button Grid.Row="1" Grid.Column="1" Name="TrackButton" Grid.ColumnSpan="2" HorizontalAlignment="Right" Height="200" Width="350" Click="Tracks_Click" Foreground="White" FontSize="30" Style="{StaticResource NormalStyle}">
+      <Image Source="/Assets/preview.png" Stretch="UniformToFill"/>
+    </Button>
+    <Button Grid.Row="1" Grid.Column="2" Name="CarButton" Grid.ColumnSpan="2" HorizontalAlignment="Right"  Height="200" Width="350" Click="Cars_Click" Foreground="White" FontSize="30" Style="{StaticResource NormalStyle}">
+      <Image Source="/Assets/singlerace.jpg" Stretch="UniformToFill"/>
+    </Button>
+
+    <Button Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1" HorizontalAlignment="Center" x:Name="StartRaceButton" Height="200" Width="250"
+                Click="StartRace_Click"
+                Content="Start Race" Foreground="White" FontSize="30" Style="{StaticResource NormalStyle}">
+      <Button.Background>
+        <ImageBrush ImageSource="../Assets/preview.jpg"/>
+      </Button.Background>
+    </Button>
+
+    <TextBlock  Grid.Column="4"  Background="#FF2B2B2B"/>
+    <ContentControl Grid.Column="4" Content="{Binding Assist}" Foreground="White" ContentTemplate="{StaticResource AssistSpecs}" />
+
+    <StatusBar Grid.Row="2"  Grid.Column="2" HorizontalAlignment="Center">
+    <Button Click="Previous_Click">Previous page</Button>
+    </StatusBar>
+    <views:RaceTimer Visibility ="Hidden" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" x:Name="RaceTimer" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+
+  </Grid>
+
+</Window>

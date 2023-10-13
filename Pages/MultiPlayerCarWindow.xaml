@@ -1,0 +1,57 @@
+﻿<Window x:Class="RaceClient.Pages.MultiPlayerCarWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:RaceClient.Views"
+        mc:Ignorable="d"
+        d:DesignHeight="1080" d:DesignWidth="1920"
+        Foreground="{x:Null}" ScrollViewer.VerticalScrollBarVisibility="Disabled" WindowState="Maximized" WindowStyle="None" ResizeMode="NoResize">
+  <Window.Resources>
+    <ImageSource x:Key="imgSource">/Assets/Background.png</ImageSource>
+    <ImageBrush x:Key="backgroundImage" ImageSource="{DynamicResource imgSource}" Opacity="0.3"></ImageBrush>
+  </Window.Resources>
+  <Window.Background>
+    <ImageBrush ImageSource="../Assets/Underground-Garage-coming-in-2021.jpg"/>
+  </Window.Background>
+
+  <Grid>
+
+    <Grid.RowDefinitions>
+      <RowDefinition Height="70"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+      <RowDefinition Height="Auto"></RowDefinition>
+    </Grid.RowDefinitions>
+    <Grid Grid.Row="0"  Background="#FF313131" >
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"></ColumnDefinition>
+        <ColumnDefinition/>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="0*"></ColumnDefinition>
+        <ColumnDefinition Width="Auto"></ColumnDefinition>
+        <ColumnDefinition Width="Auto"></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+      <StackPanel Margin="20 10 0 0"  Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+        <TextBlock Text="Race Client" HorizontalAlignment="Center" FontSize="15" Foreground="White"></TextBlock>
+        <TextBlock Text="version 1.0" HorizontalAlignment="Center" FontSize="15" Foreground="White"></TextBlock>
+      </StackPanel>
+      <TextBlock Text="Car Selection" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="30" Foreground="#FF882898" Grid.Column="1" Height="38" Width="231"/>
+      <Button Grid.Column="4" Margin="0,10,0,10"  BorderBrush="{x:Null}"  BorderThickness="1" Click="Button_Click" Background="{x:Null}">
+        <materialDesign:PackIcon
+                    Width="20"
+                    Height="20"
+                    Foreground="white"
+                    Kind="WindowMinimize" />
+      </Button>
+      <Button Grid.Column="5" Width="50" Margin="0,10,0,10" BorderBrush="{x:Null}" BorderThickness="1" Click="Button_Click_1" Background="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Center">
+        <materialDesign:PackIcon Width="20" Height="20" Foreground="white" Kind="Shutdown" />
+      </Button>
+    </Grid>
+
+    <views:MultiPlayerCarsView Grid.Row="1" x:Name="MultiPlayerCarsViewTab" Foreground="White"/>
+    <views:RaceTimer  Grid.Column="0" Grid.Row="2" x:Name="RaceTimer" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+    
+  </Grid>
+</Window>
+

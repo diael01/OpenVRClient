@@ -1,0 +1,127 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+ 
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\1.jpg" />
+    <None Remove="Assets\ACC_1.jpg" />
+    <None Remove="Assets\Assists\Gamer.png" />
+    <None Remove="Assets\Assists\Moderate.png" />
+    <None Remove="Assets\Assists\Pro.png" />
+    <None Remove="Assets\Background.png" />
+    <None Remove="Assets\Assetto-Corsa-Competizione-lamborghini-1-1-550x309.jpg" />
+    <None Remove="Assets\Backgrounds\Car_select.png" />
+    <None Remove="Assets\Backgrounds\Loading_singleplayer.mp4" />
+    <None Remove="Assets\Backgrounds\Track_select.png" />
+    <None Remove="Assets\Checked.png" />
+    <None Remove="Assets\Cog.png" />
+    <None Remove="Assets\images.png" />
+    <None Remove="Assets\img_351582.png" />
+    <None Remove="Assets\pitstop.jpg" />
+    <None Remove="Assets\preview.jpg" />
+    <None Remove="Assets\preview.png" />
+    <None Remove="Assets\SceneSelection\Race Button.png" />
+    <None Remove="Assets\SceneSelection\TOTM Button.png" />
+    <None Remove="Assets\singlerace.jpg" />
+    <None Remove="Assets\stopwatch.png" />
+    <None Remove="Assets\Unchecked.png" />
+    <None Remove="Assets\Underground-Garage-coming-in-2021.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DeepCloner" Version="0.10.4" />
+    <PackageReference Include="JetBrains.Annotations" Version="2023.2.0" />
+    <PackageReference Include="MaterialDesignColors" Version="2.1.4" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="VMSShared">
+      <HintPath>..\vmsshared\VMSShared\bin\Debug\net6.0\VMSShared.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\1.jpg" />
+    <Resource Include="Assets\ACC_1.jpg" />
+    <Resource Include="Assets\Assists\Gamer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Assists\Moderate.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Assists\Pro.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Background.png" />
+    <Resource Include="Assets\Assetto-Corsa-Competizione-lamborghini-1-1-550x309.jpg" />
+    <Resource Include="Assets\Backgrounds\Car_select.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Backgrounds\Loading_singleplayer.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Backgrounds\Track_select.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Checked.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Cog.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\images.png" />
+    <Resource Include="Assets\img_351582.png" />
+    <Resource Include="Assets\pitstop.jpg" />
+    <Resource Include="Assets\preview.jpg" />
+    <Resource Include="Assets\preview.png" />
+    <Resource Include="Assets\SceneSelection\Race Button.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\SceneSelection\TOTM Button.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\singlerace.jpg" />
+    <Resource Include="Assets\stopwatch.png" />
+    <Resource Include="Assets\Unchecked.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Underground-Garage-coming-in-2021.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\MultiPlayerCarsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="https://json.schemastore.org/artifacthub-repo.json" /></VisualStudio></ProjectExtensions>
+
+</Project>
